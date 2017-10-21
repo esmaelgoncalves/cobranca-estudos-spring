@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="LayoutPadrao">
+<head>
+<title>Spring Security Example</title>
+</head>
+<section layout:fragment="conteudo">
+	<div class="alert alert-danger alert-dismissible" role="alert"  auto-close="5000"
+		th:if="${param.error}">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+		Usuário e/ou Senha Inválidos.
+	</div>
+	<div class="alert alert-success alert-dismissible" role="alert"  auto-close="5000"
+		th:if="${param.logout}">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+		Usuário realizou LOGOUT com sucesso.
+	</div>
+	
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4 col-md-offset-4">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Please sign in</h3>
+					</div>
+					<div class="panel-body">
+						<form th:action="@{/login}" method="post">
+							<fieldset>
+								<div class="form-group">
+									<input class="form-control" placeholder="Usuário"
+										name="username" type="text"></input>
+								</div>
+								<div class="form-group">
+									<input class="form-control" placeholder="Password"
+										name="password" type="password" value=""></input>
+								</div>
+								<input class="btn btn-lg btn-success btn-block" type="submit"
+									value="Login"></input>
+							</fieldset>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+</html>

@@ -10,6 +10,12 @@
 				th:src="@{/images/logo.png}" />
 			</a>
 		</div>
+		<div class="navbar-header navbar-right">
+			<p class="navbar-text" th:inline="text">Bem vindo, [[${#httpServletRequest.remoteUser}]]</p>
+			<form th:action="@{/logout}" method="post">
+            	<input type="submit" value="Sign Out"/>
+        	</form>
+		</div>
 	</div>
 </nav>
 </html>
